@@ -5,8 +5,9 @@
 1、git clone or download and extra the file to a directory where it won't bother you 
 
 2 、Inside a terminal, cd into the BestDailyWaper-master folder, then run 
+sudo sh ./install like:
 ```
-sudo sh ./install
+xxx@xxx:~/BestDailyWallpaper$ sudo sh ./install
 ```
 
 3、find the wallpaper from System Setting->Appearance
