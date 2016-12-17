@@ -1,0 +1,92 @@
+#!/bin/sh
+
+xml='BestDailyWallpaper.xml'
+year=`date +%Y`
+month=`date +%m`
+day=`date +%d`
+hour='0'
+minute='0'
+
+dir='/usr/share/backgrounds/Dailywallpaper'
+
+cat <<END_OF_XML > $xml
+<background>
+<starttime>
+<year>$year</year>
+<month>$month</month>
+<day>$day</day>
+<hour>$hour</hour>
+<minute>$minute</minute>
+<second>01</second>
+</starttime>
+
+<static>
+<duration>18000.0</duration>
+<file>$dir/08.png</file>
+</static>
+<!-- it is now 5am -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/08.png</from>
+<to>$dir/01.png</to>
+</transition>
+<!-- it is now 7am -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/01.png</from>
+<to>$dir/02.png</to>
+</transition>
+<!-- it is now 9am -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/02.png</from>
+<to>$dir/03.png</to>
+</transition>
+<!-- it is now 11am -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/03.png</from>
+<to>$dir/04.png</to>
+</transition>
+<!-- it is now 1pm -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/04.png</from>
+<to>$dir/05.png</to>
+</transition>
+<!-- it is now 3pm -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/05.png</from>
+<to>$dir/06.png</to>
+</transition>
+<!-- it is now 5pm -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/06.png</from>
+<to>$dir/07.png</to>
+</transition>
+<!-- it is now 7pm -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>$dir/07.png</from>
+<to>$dir/08.png</to>
+</transition>
+<!-- it is now 9pm -->
+<static>
+<duration>10800.0</duration>
+<file>$dir/08.png</file>
+</static>
+<!-- it is now midnight -->
+</background>
+END_OF_XML
+
+cp -R Dailywallpaper /usr/share/backgrounds/
+cp $xml $dir
+echo "XML background file generated: $dir/$xml"
+
+cp DailyWallpaper.xml /usr/share/gnome-background-properties/
+echo "Install Finished"
+echo "Use System Setting->Appearance to find this theme"
+
+###END INSTALL SCRIPT
